@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zingaro AI Brochure — A5</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1a1a1a;
+    color: #333;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  h1 {
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ccc;
+    margin-bottom: 4px;
+  }
+
+  .page-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+
+  .spreads {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .spread-label {
+    text-align: center;
+    font-size: 10px;
+    color: #555;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  /* ============ A5 SPREAD (210mm × 148mm landscape, two halves) ============ */
+  .spread {
+    display: flex;
+    width: 794px;  /* A5 landscape width at 96 DPI */
+    height: 559px; /* A5 landscape height at 96 DPI */
+    box-shadow: 0 16px 48px rgba(0,0,0,0.45);
+  }
+
+  .panel {
+    width: 397px;  /* Half of A5 landscape */
+    height: 559px;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .fold-line {
+    display: none;
+  }
+
+  /* ============ FRONT COVER ============ */
+  .front-cover {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 24px;
+  }
+
+  .fc-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+
+  .fc-brand {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: #111;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .fc-brand .ai { color: #f97316; }
+
+  .fc-tagline {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 24px;
+  }
+
+  .fc-divider {
+    width: 36px;
+    height: 2px;
+    background: #f97316;
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  .fc-headline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #222;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    max-width: 320px;
+  }
+
+  .fc-headline em {
+    font-style: normal;
+    color: #f97316;
+  }
+
+  .fc-desc {
+    font-size: 10px;
+    color: #666;
+    line-height: 1.6;
+    max-width: 300px;
+    margin-bottom: 24px;
+  }
+
+  .fc-cta {
+    display: inline-block;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    border-radius: 6px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 30px;
+  }
+
+  .fc-url {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #f97316;
+    letter-spacing: 1px;
+  }
+
+  .fc-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #f97316;
+    margin-bottom: 12px;
+  }
+
+  .fc-stats {
+    display: flex;
+    margin-bottom: 18px;
+  }
+
+  .fc-stat {
+    text-align: center;
+    padding: 0 10px;
+    border-right: 1px solid #eee;
+  }
+
+  .fc-stat:last-child { border-right: none; }
+
+  .fc-stat-val {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: #f97316;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .fc-stat-label {
+    font-size: 6px;
+    font-weight: 700;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ============ BACK COVER ============ */
+  .back-cover {
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+  }
+
+  .bc-dots {
+    padding: 16px 24px 12px;
+    display: grid;
+    grid-template-columns: repeat(12, 6px);
+    gap: 6px;
+    opacity: 0.3;
+  }
+
+  .bc-dots span {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #f97316;
+  }
+
+  .bc-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 24px;
+  }
+
+  .bc-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+  }
+
+  .bc-headline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #e5e5e5;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .bc-headline em {
+    font-style: normal;
+    color: #f97316;
+  }
+
+  .bc-sub {
+    font-size: 9px;
+    color: #777;
+    line-height: 1.5;
+    max-width: 300px;
+    margin-bottom: 18px;
+  }
+
+  .bc-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .bc-contact-item {
+    font-size: 9px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+  }
+
+  .bc-contact-item svg { flex-shrink: 0; width: 10px; height: 10px; }
+
+  .bc-tools-box {
+    width: 100%;
+    max-width: 340px;
+    border: 1px solid rgba(249,115,22,0.3);
+    border-radius: 12px;
+    padding: 10px 12px;
+    margin-bottom: 14px;
+    background: rgba(249,115,22,0.04);
+  }
+
+  .bc-tools-box-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .bc-tools-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #f97316;
+    margin-bottom: 8px;
+  }
+
+  .bc-tools-badge {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 6.5px;
+    font-weight: 700;
+    color: #0f172a;
+    background: #f97316;
+    padding: 2px 7px;
+    border-radius: 10px;
+    letter-spacing: 0.3px;
+  }
+
+  .bc-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+    max-width: 340px;
+  }
+
+  .bc-tool-pill {
+    padding: 3px 7px;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 10px;
+    font-size: 6.5px;
+    color: #e2e8f0;
+    font-weight: 500;
+    white-space: nowrap;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .bc-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 3px 8px;
+    border: 1px solid rgba(249,115,22,0.4);
+    border-radius: 12px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 6px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #f97316;
+  }
+
+  .bc-footer-bar {
+    width: 100%;
+    padding: 8px 24px;
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .bc-footer-bar span {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+
+  /* ============ INSIDE LEFT ============ */
+  .inside-left {
+    background: #ffffff;
+    padding: 18px 18px 8px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .il-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .il-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .il-logo {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+  }
+
+  .il-brand-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #111;
+  }
+
+  .il-brand-text .ai { color: #f97316; }
+
+  .il-badge {
+    padding: 3px 8px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 6px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #f97316;
+  }
+
+  .il-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #f97316;
+    margin-bottom: 4px;
+  }
+
+  .il-headline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: #111;
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+
+  .il-headline em {
+    font-style: normal;
+    color: #f97316;
+  }
+
+  .il-desc {
+    font-size: 8.5px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .il-stats {
+    display: flex;
+    margin-bottom: 10px;
+    padding: 8px 10px;
+    background: linear-gradient(135deg, #fff7ed, #fff1e0);
+    border-radius: 8px;
+    border: 1px solid rgba(249,115,22,0.15);
+    gap: 0;
+  }
+
+  .il-stat {
+    flex: 1;
+    text-align: center;
+    padding: 3px 0;
+    position: relative;
+  }
+
+  .il-stat + .il-stat::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15%;
+    height: 70%;
+    width: 1px;
+    background: rgba(249,115,22,0.25);
+  }
+
+  .il-stat-val {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    color: #f97316;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .il-stat-label {
+    font-size: 6px;
+    font-weight: 700;
+    color: #b45309;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .il-section-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #f97316;
+    margin-bottom: 6px;
+  }
+
+  .il-pains {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+
+  .il-pain {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 5px 8px;
+    background: #f8fafc;
+    border: 1px solid #eef0f2;
+    border-radius: 6px;
+  }
+
+  .il-pain-icon {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+
+  .il-pain-icon svg { width: 12px; height: 12px; }
+
+  .il-pain-mid { flex: 1; }
+
+  .il-pain-q {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.3;
+    margin-bottom: 2px;
+  }
+
+  .il-pain-desc {
+    font-size: 6.5px;
+    color: #333;
+    line-height: 1.35;
+  }
+
+  .il-pain-right {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .il-pain-arrow {
+    color: #f97316;
+    font-size: 7px;
+  }
+
+  .il-pain-a {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    color: #f97316;
+    font-weight: 700;
+    text-align: right;
+    line-height: 1.2;
+    font-style: italic;
+  }
+
+  .il-tools-wrap {
+    margin-top: auto;
+    background: none;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 12px 10px;
+  }
+
+  .il-tools-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+
+  .il-tools-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #f97316;
+  }
+
+  .il-tools-count {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    color: #b45309;
+  }
+
+  .il-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .il-tool-pill {
+    padding: 3px 8px;
+    background: #ffffff;
+    border: 1px solid rgba(249,115,22,0.25);
+    border-radius: 10px;
+    font-size: 7px;
+    color: #333;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* How It Works */
+  .il-hiw {
+    margin-top: 8px;
+    background: linear-gradient(135deg, #fff7ed, #fff1e0);
+    border: 1px solid rgba(249,115,22,0.15);
+    border-radius: 8px;
+    padding: 10px 10px 8px;
+  }
+
+  .il-hiw-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #f97316;
+    margin-bottom: 8px;
+  }
+
+  .il-hiw-steps {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .il-hiw-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+  }
+
+  .il-hiw-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    color: #f97316;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .il-hiw-step-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 2px;
+  }
+
+  .il-hiw-step-desc {
+    font-size: 6px;
+    color: #555;
+    line-height: 1.3;
+    padding: 0 3px;
+  }
+
+  .il-hiw-arrow {
+    position: absolute;
+    right: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #f97316;
+    font-size: 9px;
+    z-index: 1;
+  }
+
+  .il-ind-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #f97316;
+    margin-top: 8px;
+    margin-bottom: 5px;
+  }
+
+  .il-industries {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+
+  .il-ind-pill {
+    padding: 3px 8px;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    font-size: 6.5px;
+    color: #555;
+    font-weight: 600;
+  }
+
+  /* ============ INSIDE RIGHT ============ */
+  .inside-right {
+    background: #ffffff;
+    padding: 0 18px 0.5px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ir-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #f97316;
+    margin-bottom: 4px;
+  }
+
+  .ir-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    color: #111;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  /* Use Case Cards */
+  .ir-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 5px;
+    margin-bottom: 6px;
+  }
+
+  .ir-card {
+    padding: 6px 5px 5px;
+    background: #ffffff;
+    border: 1px solid #eef0f2;
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  .ir-card-icon {
+    font-size: 15px;
+    margin-bottom: 3px;
+    line-height: 1;
+  }
+
+  .ir-card-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 6.5px;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+
+  .ir-card-desc {
+    font-size: 5.5px;
+    color: #333;
+    line-height: 1.3;
+  }
+
+  /* Features List */
+  .ir-features-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #f97316;
+    margin-bottom: 8px;
+  }
+
+  .ir-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+
+  .ir-feature {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 8px;
+    background: #f8f8f8;
+    border: 1px solid #eee;
+    border-radius: 6px;
+  }
+
+  .ir-feature-icon {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 5px;
+    background: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ir-feature-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7.5px;
+    font-weight: 700;
+    color: #222;
+    line-height: 1.2;
+  }
+
+  /* Advantages */
+  .ir-adv-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #f97316;
+    margin-top: 8px;
+    margin-bottom: 6px;
+  }
+
+  .ir-advs {
+    display: flex;
+    gap: 5px;
+  }
+
+  .ir-adv {
+    flex: 1;
+    text-align: center;
+    padding: 8px 5px;
+    background: #0f172a;
+    border-radius: 6px;
+  }
+
+  .ir-adv-val {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    color: #f97316;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .ir-adv-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 6.5px;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+    margin-bottom: 3px;
+  }
+
+  .ir-adv-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 5.5px;
+    color: #ffffff;
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  .ir-adv-icon {
+    font-size: 14px;
+    margin-bottom: 3px;
+    line-height: 1;
+  }
+
+  /* 44 Languages Section */
+  .ir-langs {
+    margin-top: 6px;
+    background: #0f172a;
+    border-radius: 8px;
+    padding: 8px 10px;
+    overflow: hidden;
+  }
+
+  .ir-langs-left {
+    float: left;
+    padding-right: 10px;
+    margin-right: 10px;
+    border-right: 2px solid rgba(249,115,22,0.4);
+    text-align: center;
+  }
+
+  .ir-langs-pills {
+    overflow: hidden;
+  }
+
+  .ir-langs-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #f97316;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .ir-langs-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 6px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+
+  .ir-langs-pills span {
+    display: inline-block;
+    margin: 1px;
+  }
+
+  .ir-lang-pill {
+    display: inline-block;
+    margin: 1.5px;
+    padding: 2px 5px;
+    border: none;
+    border-radius: 6px;
+    font-size: 6px;
+    color: #cbd5e1;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .ir-lang-pill.selected {
+    background: none;
+    border: none;
+    color: #fb923c;
+    font-weight: 600;
+  }
+
+  /* How It Works */
+  .ir-section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 6px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #f97316;
+    margin-bottom: 8px;
+  }
+
+  .ir-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .ir-step {
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+  }
+
+  .ir-step-num {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 8px;
+    font-weight: 800;
+    color: #fff;
+  }
+
+  .ir-step-content { flex: 1; }
+
+  .ir-step-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 1px;
+  }
+
+  .ir-step-desc {
+    font-size: 6.5px;
+    color: #888;
+    line-height: 1.35;
+  }
+
+  /* Industry Pills */
+  .ir-ind-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #f97316;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+
+  .ir-industries {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+  }
+
+  .ir-ind-pill {
+    padding: 3px 8px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    font-size: 7px;
+    color: #555;
+    font-weight: 600;
+  }
+
+  /* CTA Bar */
+  .ir-cta-bar {
+    margin-top: auto;
+    padding: 12px;
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .ir-cta-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 3px;
+  }
+
+  .ir-cta-sub {
+    font-size: 8px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+  }
+
+  /* ============ DOWNLOAD BUTTONS ============ */
+  .download-btns {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 14px;
+  }
+
+  .dl-btn {
+    padding: 8px 20px;
+    border: 1px solid rgba(249,115,22,0.4);
+    border-radius: 8px;
+    background: rgba(249,115,22,0.08);
+    color: #f97316;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .dl-btn:hover {
+    background: rgba(249,115,22,0.18);
+    border-color: #f97316;
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<h1>Zingaro AI Brochure — A5</h1>
+<p class="page-subtitle">A5 bi-fold &bull; Print double-sided on A5 landscape, fold in half</p>
+
+<div class="spreads">
+
+  <!-- ==================== OUTER SPREAD: Back Cover (left) | Front Cover (right) ==================== -->
+  <div>
+    <div class="spread-label">Outside: Back (left) &bull; Front (right)</div>
+    <div class="spread" id="spread-outer" style="box-shadow:none;">
+
+      <!-- BACK COVER (left panel) -->
+      <div class="panel back-cover">
+        <div class="bc-dots">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="bc-badge">India AI Summit 2026</div>
+        <div class="bc-main">
+          <img src="images/logo.png" class="bc-logo" alt="Zingaro AI">
+          <div class="bc-headline">Voice AI That <em>Actually</em><br>Runs Your Business</div>
+          <div class="bc-sub">Answers calls. Qualifies leads. Books appointments.<br>Follows up. Reports back. All on autopilot.</div>
+          <div class="bc-tools-box">
+            <div class="bc-tools-box-header">
+              <div class="bc-tools-label" style="margin-bottom:0;">Connects with Your Tools</div>
+              <div class="bc-tools-badge">100+ Integrations</div>
+            </div>
+            <div class="bc-tools">
+              <span class="bc-tool-pill">&#128172; WhatsApp</span><span class="bc-tool-pill">&#9993; Gmail</span><span class="bc-tool-pill">&#128197; Google Calendar</span><span class="bc-tool-pill">&#9729; Salesforce</span><span class="bc-tool-pill">&#128196; Zoho CRM</span><span class="bc-tool-pill">&#128992; HubSpot</span><span class="bc-tool-pill">&#128202; Sheets</span><span class="bc-tool-pill">&#128172; Slack</span><span class="bc-tool-pill">&#128222; Twilio</span><span class="bc-tool-pill">&#9889; Zapier</span><span class="bc-tool-pill" style="border-color:#f97316;color:#f97316;font-weight:700;">+ 90 more</span>
+            </div>
+          </div>
+          <div class="bc-contact">
+            <div class="bc-contact-item"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg> zingaro.ai</div>
+            <div class="bc-contact-item"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> sales@zingaro.ai</div>
+            <div class="bc-contact-item"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> +91 80194 86323</div>
+          </div>
+        </div>
+        <div class="bc-footer-bar"><span>zingaro.ai</span></div>
+      </div>
+
+      <!-- FRONT COVER (right panel) -->
+      <div class="panel front-cover">
+        <div class="fc-label">The Future of Business Communication</div>
+        <img src="images/logo.png" class="fc-logo" alt="Zingaro AI">
+        <div class="fc-brand">ZINGARO <span class="ai">AI</span></div>
+        <div class="fc-tagline">Automate Everything</div>
+        <div class="fc-divider"></div>
+        <div class="fc-headline">Your AI Employees That<br><em>Talk, Listen</em><br><em>&amp; Close Deals</em></div>
+        <p class="fc-desc">Deploy human-like AI voice agents that handle customer calls 24/7, from lead qualification to appointment booking, in any language your customers speak.</p>
+        <div class="fc-stats">
+          <div class="fc-stat"><div class="fc-stat-val">44</div><div class="fc-stat-label">Languages</div></div>
+          <div class="fc-stat"><div class="fc-stat-val">40+</div><div class="fc-stat-label">Countries</div></div>
+          <div class="fc-stat"><div class="fc-stat-val">24/7</div><div class="fc-stat-label">Available</div></div>
+          <div class="fc-stat"><div class="fc-stat-val">&lt;1s</div><div class="fc-stat-label">Response</div></div>
+        </div>
+        <div class="fc-url">zingaro.ai</div>
+      </div>
+
+    </div>
+    <div class="download-btns">
+      <button class="dl-btn" onclick="downloadJPG('spread-outer', 'zingaro-a5-outside')">JPG</button>
+      <button class="dl-btn" onclick="downloadPDF('spread-outer', 'zingaro-a5-outside')">PDF</button>
+      <button class="dl-btn" onclick="downloadPNG('spread-outer', 'zingaro-a5-outside')">PNG</button>
+    </div>
+  </div>
+
+  <!-- ==================== INNER SPREAD: Inside Left | Inside Right ==================== -->
+  <div>
+    <div class="spread-label">Inside: opens to this spread</div>
+    <div class="spread" id="spread-inner" style="background:#ffffff; box-shadow:none;">
+
+      <!-- INSIDE LEFT -->
+      <div class="panel inside-left">
+        <div class="il-topbar">
+          <div class="il-logo-row">
+            <img src="images/logo.png" class="il-logo" alt="Zingaro AI">
+            <span class="il-brand-text">Zingaro <span class="ai">AI</span></span>
+          </div>
+          <div class="il-badge">India AI Summit 2026</div>
+        </div>
+        <div class="il-label">The Future of Business Communication</div>
+        <div class="il-headline">Your AI Employees<br>That <em>Talk, Listen</em><br><em>&amp; Close Deals</em></div>
+        <div class="il-desc">Deploy human-like AI voice agents that handle customer calls 24/7, from lead qualification to appointment booking, in any language.</div>
+        <div class="il-stats">
+          <div class="il-stat"><div class="il-stat-val">44</div><div class="il-stat-label">Languages</div></div>
+          <div class="il-stat"><div class="il-stat-val">40+</div><div class="il-stat-label">Countries</div></div>
+          <div class="il-stat"><div class="il-stat-val">24/7</div><div class="il-stat-label">Available</div></div>
+          <div class="il-stat"><div class="il-stat-val">&lt;1s</div><div class="il-stat-label">Response</div></div>
+        </div>
+        <div class="il-section-label" style="font-weight:900;font-size:7px;">What Zingaro Does For You</div>
+        <div class="il-pains">
+          <div class="il-pain">
+            <div class="il-pain-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+            <div class="il-pain-mid"><div class="il-pain-q">Missing customer calls?</div><div class="il-pain-desc">AI receptionist answers every call 24/7, routes callers, books appointments.</div></div>
+            <div class="il-pain-right"><span class="il-pain-arrow">&#8594;</span><span class="il-pain-a">Zero missed calls</span></div>
+          </div>
+          <div class="il-pain">
+            <div class="il-pain-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+            <div class="il-pain-mid"><div class="il-pain-q">WhatsApp customers waiting?</div><div class="il-pain-desc">AI handles WhatsApp voice calls, follow-ups, confirmations automatically.</div></div>
+            <div class="il-pain-right"><span class="il-pain-arrow">&#8594;</span><span class="il-pain-a">Instant engagement</span></div>
+          </div>
+          <div class="il-pain">
+            <div class="il-pain-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <div class="il-pain-mid"><div class="il-pain-q">No call visibility?</div><div class="il-pain-desc">Every call recorded &amp; auto-summarized with key takeaways and sentiment.</div></div>
+            <div class="il-pain-right"><span class="il-pain-arrow">&#8594;</span><span class="il-pain-a">Full summaries</span></div>
+          </div>
+          <div class="il-pain">
+            <div class="il-pain-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+            <div class="il-pain-mid"><div class="il-pain-q">Can't reach leads fast enough?</div><div class="il-pain-desc">Personalized outbound campaigns. Thousands of calls simultaneously.</div></div>
+            <div class="il-pain-right"><span class="il-pain-arrow">&#8594;</span><span class="il-pain-a">10x outreach</span></div>
+          </div>
+          <div class="il-pain">
+            <div class="il-pain-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg></div>
+            <div class="il-pain-mid"><div class="il-pain-q">Manual work after every call?</div><div class="il-pain-desc">Auto-triggers CRM updates, WhatsApp, emails, task creation.</div></div>
+            <div class="il-pain-right"><span class="il-pain-arrow">&#8594;</span><span class="il-pain-a">Full automation</span></div>
+          </div>
+          <div class="il-pain">
+            <div class="il-pain-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+            <div class="il-pain-mid"><div class="il-pain-q">Robotic IVR frustration?</div><div class="il-pain-desc">AI speaks naturally in 44 languages. Customers won't know it's AI.</div></div>
+            <div class="il-pain-right"><span class="il-pain-arrow">&#8594;</span><span class="il-pain-a">Human-like voice</span></div>
+          </div>
+        </div>
+        <div class="il-tools-wrap">
+          <div class="il-tools-row">
+            <div class="il-tools-label" style="font-weight:900;font-size:7px;">Connects with Your Tools</div>
+            <div class="il-tools-count">100+ Integrations</div>
+          </div>
+          <div class="il-tools">
+            <span class="il-tool-pill">&#128172; WhatsApp</span><span class="il-tool-pill">&#9993; Gmail</span><span class="il-tool-pill">&#128197; Calendar</span><span class="il-tool-pill">&#9729; Salesforce</span><span class="il-tool-pill">&#128196; Zoho</span><span class="il-tool-pill">&#128992; HubSpot</span><span class="il-tool-pill">&#128202; Sheets</span><span class="il-tool-pill">&#128172; Slack</span><span class="il-tool-pill">&#128222; Twilio</span><span class="il-tool-pill">&#128221; Notion</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- INSIDE RIGHT -->
+      <div class="panel inside-right">
+        <div class="il-topbar" style="margin-bottom:8px;background:linear-gradient(135deg, #fff7ed, #fff1e0);padding:7px 18px;margin:0 -18px;border-radius:0;">
+          <div class="il-logo-row">
+            <img src="images/logo.png" class="il-logo" alt="Zingaro AI">
+            <span class="il-brand-text">Zingaro <span class="ai">AI</span></span>
+          </div>
+          <div class="il-badge">AI-Powered Voice Automation</div>
+        </div>
+        <div class="ir-label">Ready-to-Deploy AI Agents</div>
+        <div class="ir-title">Automate Every Call.<br>Every Workflow.</div>
+        <div class="ir-cards">
+          <div class="ir-card" style="border-top:2px solid #f97316;"><div class="ir-card-icon">&#128222;</div><div class="ir-card-name">AI Receptionist</div><div class="ir-card-desc">Answer every call. Route callers. Take messages 24/7.</div></div>
+          <div class="ir-card" style="border-top:2px solid #f97316;"><div class="ir-card-icon">&#127919;</div><div class="ir-card-name">Lead Qualification</div><div class="ir-card-desc">Call leads instantly. Qualify and push hot leads to sales.</div></div>
+          <div class="ir-card" style="border-top:2px solid #f97316;"><div class="ir-card-icon">&#128197;</div><div class="ir-card-name">Appointments</div><div class="ir-card-desc">Book, confirm, reschedule. Sync with your calendar.</div></div>
+          <div class="ir-card" style="border-top:2px solid #f97316;"><div class="ir-card-icon">&#128176;</div><div class="ir-card-name">Collections</div><div class="ir-card-desc">Payment reminders, EMI follow-ups at scale.</div></div>
+          <div class="ir-card" style="border-top:2px solid #f97316;"><div class="ir-card-icon">&#11088;</div><div class="ir-card-name">Surveys</div><div class="ir-card-desc">NPS scores and feedback via natural conversations.</div></div>
+          <div class="ir-card" style="border-top:2px solid #f97316;"><div class="ir-card-icon">&#128230;</div><div class="ir-card-name">Order Updates</div><div class="ir-card-desc">Delivery updates and returns that feel personal.</div></div>
+          <div class="ir-card" style="border-top:2px solid #f97316;"><div class="ir-card-icon">&#128227;</div><div class="ir-card-name">Campaigns</div><div class="ir-card-desc">Personalized calling to thousands simultaneously.</div></div>
+          <div class="ir-card" style="border-top:2px solid #f97316;"><div class="ir-card-icon">&#128260;</div><div class="ir-card-name">Reactivation</div><div class="ir-card-desc">Win back dormant customers with context-aware calls.</div></div>
+        </div>
+        <div class="ir-adv-label" style="margin-top:6px;font-weight:900;">How It Works</div>
+        <div class="il-hiw" style="margin-top:0px;">
+          <div class="il-hiw-steps">
+            <div class="il-hiw-step"><div class="il-hiw-num">01</div><div class="il-hiw-step-title">Create Agent</div><div class="il-hiw-step-desc">Define personality, script &amp; voice</div><div class="il-hiw-arrow">&#9654;</div></div>
+            <div class="il-hiw-step"><div class="il-hiw-num">02</div><div class="il-hiw-step-title">Connect Number</div><div class="il-hiw-step-desc">Local number in 40+ countries</div><div class="il-hiw-arrow">&#9654;</div></div>
+            <div class="il-hiw-step"><div class="il-hiw-num">03</div><div class="il-hiw-step-title">Automate</div><div class="il-hiw-step-desc">CRM, WhatsApp, email triggers</div><div class="il-hiw-arrow">&#9654;</div></div>
+            <div class="il-hiw-step"><div class="il-hiw-num">04</div><div class="il-hiw-step-title">Go Live</div><div class="il-hiw-step-desc">AI handles calls. Monitor everything.</div></div>
+          </div>
+        </div>
+        <div class="il-tools-wrap" style="margin-top:6px;margin-bottom:0;background:none;border:none;padding:5px 0;">
+          <div class="il-tools-row" style="justify-content:center;margin-bottom:4px;">
+            <div class="il-tools-label" style="font-weight:800;font-size:7px;">Works Across Industries</div>
+          </div>
+          <div class="il-tools" style="justify-content:center;gap:3px;">
+            <span class="il-tool-pill" style="padding:2px 6px;font-size:6px;">&#127973; Healthcare</span>
+            <span class="il-tool-pill" style="padding:2px 6px;font-size:6px;">&#127968; Real Estate</span>
+            <span class="il-tool-pill" style="padding:2px 6px;font-size:6px;">&#128722; E-Commerce</span>
+            <span class="il-tool-pill" style="padding:2px 6px;font-size:6px;">&#127891; Education</span>
+            <span class="il-tool-pill" style="padding:2px 6px;font-size:6px;">&#127974; Finance</span>
+            <span class="il-tool-pill" style="padding:2px 6px;font-size:6px;">&#128666; Logistics</span>
+            <span class="il-tool-pill" style="padding:2px 6px;font-size:6px;">&#127976; Hospitality</span>
+            <span class="il-tool-pill" style="padding:2px 6px;font-size:6px;">&#128187; SaaS</span>
+            <span class="il-tool-pill" style="padding:2px 6px;font-size:6px;">&#128663; Auto</span>
+            <span class="il-tool-pill" style="padding:2px 6px;font-size:6px;">&#9992;&#65039; Travel</span>
+          </div>
+        </div>
+        <div class="ir-adv-label">The Zingaro Advantage</div>
+        <div class="ir-advs">
+          <div class="ir-adv"><div class="ir-adv-icon">&#128176;</div><div class="ir-adv-val">90%</div><div class="ir-adv-text">Cost Savings</div><div class="ir-adv-desc">Replace call centers with AI at a fraction of cost.</div></div>
+          <div class="ir-adv"><div class="ir-adv-icon">&#128200;</div><div class="ir-adv-val">10x</div><div class="ir-adv-text">More Calls</div><div class="ir-adv-desc">Thousands of simultaneous conversations.</div></div>
+          <div class="ir-adv"><div class="ir-adv-icon">&#9889;</div><div class="ir-adv-val" style="font-size:13px;">Post-Call</div><div class="ir-adv-text">Automation</div><div class="ir-adv-desc">CRM, WhatsApp, email triggers per call.</div></div>
+        </div>
+        <div style="margin-top:6px;background:#0f172a;border-radius:6px;padding:7px 10px;display:flex;align-items:flex-start;gap:10px;">
+          <div style="display:flex;flex-direction:column;align-items:center;padding-right:10px;border-right:1px solid rgba(249,115,22,0.4);flex-shrink:0;">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:800;color:#f97316;line-height:1;">44</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:6px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#ffffff;">Languages</div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:3px;flex:1;">
+            <span class="ir-lang-pill selected">Hindi</span><span class="ir-lang-pill selected">Tamil</span><span class="ir-lang-pill selected">Telugu</span><span class="ir-lang-pill selected">Bengali</span><span class="ir-lang-pill selected">Marathi</span><span class="ir-lang-pill selected">Kannada</span><span class="ir-lang-pill selected">Gujarati</span><span class="ir-lang-pill selected">Malayalam</span><span class="ir-lang-pill selected">Punjabi</span><span class="ir-lang-pill selected">English</span><span class="ir-lang-pill">Arabic</span><span class="ir-lang-pill">Spanish</span><span class="ir-lang-pill">French</span><span class="ir-lang-pill">German</span><span class="ir-lang-pill">Japanese</span><span class="ir-lang-pill">+ 28 more</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="download-btns">
+      <button class="dl-btn" onclick="downloadJPG('spread-inner', 'zingaro-a5-inside')">JPG</button>
+      <button class="dl-btn" onclick="downloadPDF('spread-inner', 'zingaro-a5-inside')">PDF</button>
+      <button class="dl-btn" onclick="downloadPNG('spread-inner', 'zingaro-a5-inside')">PNG</button>
+    </div>
+  </div>
+
+  <!-- ==================== DOWNLOAD ALL ==================== -->
+  <div class="download-btns" style="margin-top:10px;">
+    <button class="dl-btn" onclick="downloadAllPDF()" style="background:rgba(249,115,22,0.15);font-weight:700;">DOWNLOAD ALL AS PDF</button>
+  </div>
+
+</div>
+
+<script>
+// A5 landscape: 210mm × 148mm (spread = two halves side by side)
+const A5_W_MM = 210;
+const A5_H_MM = 148;
+
+function getBgColor(elementId) {
+  return elementId === 'spread-outer' ? null : '#ffffff';
+}
+
+async function renderSpread(elementId, scale) {
+  const el = document.getElementById(elementId);
+  return html2canvas(el, {
+    backgroundColor: getBgColor(elementId),
+    scale: scale,
+    useCORS: true
+  });
+}
+
+async function downloadJPG(elementId, filename) {
+  const canvas = await renderSpread(elementId, 3);
+  const link = document.createElement('a');
+  link.download = filename + '.jpg';
+  link.href = canvas.toDataURL('image/jpeg', 0.95);
+  link.click();
+}
+
+async function downloadPDF(elementId, filename) {
+  const canvas = await renderSpread(elementId, 3);
+  const imgData = canvas.toDataURL('image/jpeg', 0.95);
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF({
+    orientation: 'landscape',
+    unit: 'mm',
+    format: [A5_W_MM, A5_H_MM]
+  });
+  pdf.addImage(imgData, 'JPEG', 0, 0, A5_W_MM, A5_H_MM);
+  pdf.save(filename + '.pdf');
+}
+
+async function downloadPNG(elementId, filename) {
+  const canvas = await renderSpread(elementId, 4);
+  const link = document.createElement('a');
+  link.download = filename + '.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+async function downloadAllPDF() {
+  const spreads = ['spread-outer', 'spread-inner'];
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF({
+    orientation: 'landscape',
+    unit: 'mm',
+    format: [A5_W_MM, A5_H_MM]
+  });
+  for (let i = 0; i < spreads.length; i++) {
+    if (i > 0) pdf.addPage([A5_W_MM, A5_H_MM], 'landscape');
+    const canvas = await renderSpread(spreads[i], 3);
+    const imgData = canvas.toDataURL('image/jpeg', 0.95);
+    pdf.addImage(imgData, 'JPEG', 0, 0, A5_W_MM, A5_H_MM);
+  }
+  pdf.save('zingaro-brochure-a5-all.pdf');
+}
+</script>
+
+</body>
+</html>

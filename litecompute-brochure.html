@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LiteCompute AI Brochure - A5</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1a1a1a;
+    color: #333;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  h1 {
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ccc;
+    margin-bottom: 4px;
+  }
+
+  .page-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+
+  .spreads {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .spread-label {
+    text-align: center;
+    font-size: 10px;
+    color: #555;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .spread {
+    display: flex;
+    width: 794px;
+    height: 559px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.45);
+  }
+
+  .panel {
+    width: 397px;
+    height: 559px;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    flex-shrink: 0;
+  }
+
+  .panel:first-child {
+    margin-right: -1px;
+    width: 398px;
+  }
+
+  /* ============ FRONT COVER ============ */
+  .front-cover {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 24px;
+  }
+
+  .fc-logo {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 16px;
+  }
+
+  .fc-brand {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: #111;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .fc-brand .ai { color: #06B6D4; }
+
+  .fc-tagline {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 24px;
+  }
+
+  .fc-divider {
+    width: 36px;
+    height: 2px;
+    background: linear-gradient(90deg, #06B6D4, #2563EB);
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  .fc-headline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #222;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    max-width: 320px;
+  }
+
+  .fc-headline em {
+    font-style: normal;
+    color: #06B6D4;
+  }
+
+  .fc-desc {
+    font-size: 10px;
+    color: #666;
+    line-height: 1.6;
+    max-width: 300px;
+    margin-bottom: 24px;
+  }
+
+  .fc-cta {
+    display: inline-block;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #06B6D4, #2563EB);
+    border-radius: 6px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 30px;
+  }
+
+  .fc-url {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #06B6D4;
+    letter-spacing: 1px;
+  }
+
+  .fc-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #06B6D4;
+    margin-bottom: 12px;
+  }
+
+  .fc-stats {
+    display: flex;
+    margin-bottom: 18px;
+  }
+
+  .fc-stat {
+    text-align: center;
+    padding: 0 10px;
+    border-right: 1px solid #eee;
+  }
+
+  .fc-stat:last-child { border-right: none; }
+
+  .fc-stat-val {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: #06B6D4;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .fc-stat-label {
+    font-size: 6px;
+    font-weight: 700;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ============ BACK COVER ============ */
+  .back-cover {
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+  }
+
+  .bc-dots {
+    padding: 16px 24px 12px;
+    display: grid;
+    grid-template-columns: repeat(12, 6px);
+    gap: 6px;
+    opacity: 0.3;
+  }
+
+  .bc-dots span {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #06B6D4;
+  }
+
+  .bc-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 24px;
+  }
+
+  .bc-logo {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 12px;
+  }
+
+  .bc-headline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #e5e5e5;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .bc-headline em {
+    font-style: normal;
+    color: #06B6D4;
+  }
+
+  .bc-sub {
+    font-size: 9px;
+    color: #777;
+    line-height: 1.5;
+    max-width: 300px;
+    margin-bottom: 16px;
+  }
+
+  .bc-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .bc-contact-item {
+    font-size: 9px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+  }
+
+  .bc-contact-item svg { flex-shrink: 0; width: 10px; height: 10px; }
+
+  .bc-engage-box {
+    width: 100%;
+    max-width: 340px;
+    border: 1px solid rgba(6,182,212,0.3);
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    background: rgba(6,182,212,0.04);
+  }
+
+  .bc-engage-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #06B6D4;
+    margin-bottom: 8px;
+  }
+
+  .bc-engage-items {
+    display: flex;
+    gap: 6px;
+  }
+
+  .bc-engage-item {
+    flex: 1;
+    text-align: center;
+    padding: 6px 4px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .bc-engage-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    color: #06B6D4;
+    margin-bottom: 2px;
+  }
+
+  .bc-engage-desc {
+    font-size: 5.5px;
+    color: #999;
+    line-height: 1.3;
+  }
+
+  .bc-tools-box {
+    width: 100%;
+    max-width: 340px;
+    border: 1px solid rgba(6,182,212,0.3);
+    border-radius: 12px;
+    padding: 10px 12px;
+    margin-bottom: 14px;
+    background: rgba(6,182,212,0.04);
+  }
+
+  .bc-tools-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #06B6D4;
+    margin-bottom: 8px;
+  }
+
+  .bc-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+    max-width: 340px;
+  }
+
+  .bc-tool-pill {
+    padding: 3px 7px;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 10px;
+    font-size: 6.5px;
+    color: #e2e8f0;
+    font-weight: 500;
+    white-space: nowrap;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .bc-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 3px 8px;
+    border: 1px solid rgba(6,182,212,0.4);
+    border-radius: 12px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 6px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #06B6D4;
+  }
+
+  .bc-footer-bar {
+    width: 100%;
+    padding: 8px 24px;
+    background: linear-gradient(135deg, #06B6D4, #2563EB);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .bc-footer-bar span {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+
+  /* ============ INSIDE LEFT ============ */
+  .inside-left {
+    background: #ffffff;
+    padding: 14px 16px 8px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .il-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .il-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .il-logo {
+    width: 22px;
+    height: 22px;
+  }
+
+  .il-brand-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #111;
+  }
+
+  .il-brand-text .ai { color: #06B6D4; }
+
+  .il-badge {
+    padding: 3px 8px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 6px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #06B6D4;
+  }
+
+  .il-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #06B6D4;
+    margin-bottom: 3px;
+  }
+
+  .il-headline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    color: #111;
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+
+  .il-headline em {
+    font-style: normal;
+    color: #06B6D4;
+  }
+
+  .il-desc {
+    font-size: 8px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  .il-section-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #06B6D4;
+    margin-bottom: 5px;
+  }
+
+  /* What We Build grid */
+  .il-build-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+
+  .il-build-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 5px 8px;
+    background: #f8fffe;
+    border: 1px solid #e0f7fa;
+    border-radius: 6px;
+  }
+
+  .il-build-icon {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #06B6D4, #2563EB);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+    font-size: 10px;
+    line-height: 1;
+  }
+
+  .il-build-mid { flex: 1; }
+
+  .il-build-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7.5px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.3;
+    margin-bottom: 1px;
+  }
+
+  .il-build-desc {
+    font-size: 6px;
+    color: #555;
+    line-height: 1.35;
+  }
+
+  /* Industries pills */
+  .il-ind-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #06B6D4;
+    margin-top: 6px;
+    margin-bottom: 5px;
+  }
+
+  .il-industries {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+  }
+
+  .il-ind-pill {
+    padding: 3px 7px;
+    border: 1px solid #e0f2fe;
+    border-radius: 10px;
+    font-size: 6.5px;
+    color: #555;
+    font-weight: 600;
+    background: #f0fdfa;
+  }
+
+  /* ============ INSIDE RIGHT ============ */
+  .inside-right {
+    background: #ffffff;
+    padding: 0 16px 6px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ir-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    background: linear-gradient(135deg, #ecfeff, #e0f2fe);
+    padding: 7px 16px;
+    margin: 0 -16px 6px;
+  }
+
+  .ir-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #06B6D4;
+    margin-bottom: 3px;
+  }
+
+  .ir-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: #111;
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+
+  /* Use Case Cards */
+  .ir-cases {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .ir-case {
+    padding: 6px 5px 5px;
+    background: #ffffff;
+    border: 1px solid #e0f2fe;
+    border-top: 2px solid #06B6D4;
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  .ir-case-icon {
+    font-size: 13px;
+    margin-bottom: 2px;
+    line-height: 1;
+  }
+
+  .ir-case-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 6px;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+
+  .ir-case-stat {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 9px;
+    font-weight: 800;
+    color: #06B6D4;
+    line-height: 1;
+    margin-bottom: 1px;
+  }
+
+  .ir-case-desc {
+    font-size: 5px;
+    color: #666;
+    line-height: 1.3;
+  }
+
+  /* How We Deliver */
+  .ir-deliver-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #06B6D4;
+    margin-bottom: 5px;
+  }
+
+  .ir-steps-wrap {
+    background: linear-gradient(135deg, #ecfeff, #e0f2fe);
+    border: 1px solid rgba(6,182,212,0.15);
+    border-radius: 8px;
+    padding: 8px 10px 6px;
+    margin-bottom: 6px;
+  }
+
+  .ir-steps {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .ir-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+  }
+
+  .ir-step-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: #06B6D4;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .ir-step-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 6.5px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 1px;
+  }
+
+  .ir-step-desc {
+    font-size: 5.5px;
+    color: #555;
+    line-height: 1.3;
+    padding: 0 2px;
+  }
+
+  .ir-step-arrow {
+    position: absolute;
+    right: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #06B6D4;
+    font-size: 9px;
+    z-index: 1;
+  }
+
+  /* Why LiteCompute */
+  .ir-why-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #06B6D4;
+    margin-bottom: 5px;
+  }
+
+  .ir-why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+
+  .ir-why-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 6px;
+    background: #f0fdfa;
+    border: 1px solid #e0f7fa;
+    border-radius: 5px;
+  }
+
+  .ir-why-check {
+    color: #06B6D4;
+    font-size: 9px;
+    flex-shrink: 0;
+  }
+
+  .ir-why-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 6.5px;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.2;
+  }
+
+  /* MLOps box */
+  .ir-mlops {
+    background: #0F172A;
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin-bottom: 6px;
+  }
+
+  .ir-mlops-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #06B6D4;
+    margin-bottom: 6px;
+  }
+
+  .ir-mlops-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .ir-mlops-pill {
+    padding: 3px 7px;
+    border: 1px solid rgba(6,182,212,0.3);
+    border-radius: 10px;
+    font-size: 6px;
+    color: #cbd5e1;
+    font-weight: 500;
+    white-space: nowrap;
+    background: rgba(6,182,212,0.08);
+  }
+
+  /* Tech Light Section */
+  .ir-tech-light {
+    margin-top: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  .ir-tech-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #06B6D4;
+    margin-bottom: 6px;
+  }
+
+  .ir-tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .ir-tech-pill {
+    padding: 3px 7px;
+    background: #ffffff;
+    border: 1px solid rgba(6,182,212,0.25);
+    border-radius: 10px;
+    font-size: 6.5px;
+    color: #333;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* ============ DOWNLOAD BUTTONS ============ */
+  .download-btns {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 14px;
+  }
+
+  .dl-btn {
+    padding: 8px 20px;
+    border: 1px solid rgba(6,182,212,0.4);
+    border-radius: 8px;
+    background: rgba(6,182,212,0.08);
+    color: #06B6D4;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .dl-btn:hover {
+    background: rgba(6,182,212,0.18);
+    border-color: #06B6D4;
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<h1>LiteCompute AI Brochure - A5</h1>
+<p class="page-subtitle">A5 bi-fold &bull; Print double-sided on A5 landscape, fold in half</p>
+
+<div class="spreads">
+
+  <!-- ==================== OUTER SPREAD: Back Cover (left) | Front Cover (right) ==================== -->
+  <div>
+    <div class="spread-label">Outside: Back (left) &bull; Front (right)</div>
+    <div class="spread" id="spread-outer">
+
+      <!-- BACK COVER (left panel) -->
+      <div class="panel back-cover">
+        <div class="bc-dots">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="bc-badge">Enterprise AI Partner</div>
+        <div class="bc-main">
+          <img src="images/litecompute_logo_enhanced.png" class="bc-logo" alt="LiteCompute AI">
+          <div class="bc-headline">Let's <em>Transform</em><br>One Workflow Today</div>
+          <div class="bc-sub">We operate as long-term partners, not short-term vendors.<br>Deep expertise in BFSI, Insurance, Government, Telecom.</div>
+
+          <div class="bc-engage-box">
+            <div class="bc-engage-label">Engagement Models</div>
+            <div class="bc-engage-items">
+              <div class="bc-engage-item">
+                <div class="bc-engage-title">Fixed Scope</div>
+                <div class="bc-engage-desc">Defined outcomes. Clear acceptance. Predictable delivery.</div>
+              </div>
+              <div class="bc-engage-item">
+                <div class="bc-engage-title">Time & Material</div>
+                <div class="bc-engage-desc">Adaptive execution for evolving requirements.</div>
+              </div>
+              <div class="bc-engage-item">
+                <div class="bc-engage-title">Dedicated Teams</div>
+                <div class="bc-engage-desc">Embedded AI engineers, long-term collaboration.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bc-contact">
+            <div class="bc-contact-item"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg> litecompute.ai</div>
+            <div class="bc-contact-item"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> develop@litecompute.ai</div>
+            <div class="bc-contact-item"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> +91 70280 37955</div>
+          </div>
+        </div>
+        <div class="bc-footer-bar"><span>litecompute.ai</span></div>
+      </div>
+
+      <!-- FRONT COVER (right panel) -->
+      <div class="panel front-cover">
+        <div class="fc-label">Enterprise AI Engineering</div>
+        <img src="images/litecompute_logo_enhanced.png" class="fc-logo" alt="LiteCompute AI">
+        <div class="fc-brand">LITECOMPUTE <span class="ai">AI</span></div>
+        <div class="fc-tagline">Build. Deploy. Scale.</div>
+        <div class="fc-divider"></div>
+        <div class="fc-headline">We Build <em>AI Systems</em><br>That Run Your<br><em>Enterprise</em></div>
+        <p class="fc-desc">From advanced RAG &amp; multi-agent orchestration to production-grade MLOps. We architect, build, and deploy AI systems for complex enterprises.</p>
+        <div class="fc-stats">
+          <div class="fc-stat"><div class="fc-stat-val">10TB+</div><div class="fc-stat-label">Data Processed</div></div>
+          <div class="fc-stat"><div class="fc-stat-val">9+</div><div class="fc-stat-label">Industries</div></div>
+          <div class="fc-stat"><div class="fc-stat-val">50+</div><div class="fc-stat-label">AI Models</div></div>
+          <div class="fc-stat"><div class="fc-stat-val">E2E</div><div class="fc-stat-label">Lifecycle</div></div>
+        </div>
+        <div class="fc-url">litecompute.ai</div>
+      </div>
+
+    </div>
+    <div class="download-btns">
+      <button class="dl-btn" onclick="downloadJPG('spread-outer', 'litecompute-a5-outside')">JPG</button>
+      <button class="dl-btn" onclick="downloadPDF('spread-outer', 'litecompute-a5-outside')">PDF</button>
+      <button class="dl-btn" onclick="downloadPNG('spread-outer', 'litecompute-a5-outside')">PNG</button>
+    </div>
+  </div>
+
+  <!-- ==================== INNER SPREAD: Inside Left | Inside Right ==================== -->
+  <div>
+    <div class="spread-label">Inside: opens to this spread</div>
+    <div class="spread" id="spread-inner">
+
+      <!-- INSIDE LEFT -->
+      <div class="panel inside-left">
+        <div class="il-topbar">
+          <div class="il-logo-row">
+            <img src="images/litecompute_logo_enhanced.png" class="il-logo" alt="LiteCompute AI">
+            <span class="il-brand-text">LiteCompute <span class="ai">AI</span></span>
+          </div>
+          <div class="il-badge">Enterprise AI</div>
+        </div>
+        <div class="il-label">What We Build</div>
+        <div class="il-headline">End-to-End <em>AI Systems</em><br>for the Enterprise</div>
+        <div class="il-desc">We architect, fine-tune, and deploy production-grade AI from multi-agent orchestration to edge inference and MLOps.</div>
+
+        <div class="il-build-grid">
+          <div class="il-build-item">
+            <div class="il-build-icon">&#129504;</div>
+            <div class="il-build-mid">
+              <div class="il-build-title">Advanced RAG & Copilots</div>
+              <div class="il-build-desc">Long-context retrieval, insight systems &amp; domain-adapted knowledge pipelines</div>
+            </div>
+          </div>
+          <div class="il-build-item">
+            <div class="il-build-icon">&#129302;</div>
+            <div class="il-build-mid">
+              <div class="il-build-title">Multi-Agent Orchestration</div>
+              <div class="il-build-desc">Agents that collaborate, reason &amp; execute. LangGraph, AutoGen frameworks</div>
+            </div>
+          </div>
+          <div class="il-build-item">
+            <div class="il-build-icon">&#127908;</div>
+            <div class="il-build-mid">
+              <div class="il-build-title">Voice & Conversational AI</div>
+              <div class="il-build-desc">CRM-integrated agents for sales &amp; support with fine-tuned TTS &amp; STT</div>
+            </div>
+          </div>
+          <div class="il-build-item">
+            <div class="il-build-icon">&#128248;</div>
+            <div class="il-build-mid">
+              <div class="il-build-title">Multimodal AI & Video Generation</div>
+              <div class="il-build-desc">Vision + language + audio systems, video analytics &amp; deep multimodal fine-tuning</div>
+            </div>
+          </div>
+          <div class="il-build-item">
+            <div class="il-build-icon">&#9889;</div>
+            <div class="il-build-mid">
+              <div class="il-build-title">Computer Use Agents (CUA)</div>
+              <div class="il-build-desc">Human-like UI automation for apps, forms &amp; legacy interfaces without APIs</div>
+            </div>
+          </div>
+          <div class="il-build-item">
+            <div class="il-build-icon">&#128205;</div>
+            <div class="il-build-mid">
+              <div class="il-build-title">Edge & On-Device AI</div>
+              <div class="il-build-desc">Private, low-latency models on mobile &amp; IoT for autonomous systems</div>
+            </div>
+          </div>
+          <div class="il-build-item">
+            <div class="il-build-icon">&#128202;</div>
+            <div class="il-build-mid">
+              <div class="il-build-title">MLOps & LLMOps</div>
+              <div class="il-build-desc">Model versioning, drift detection, cost &amp; latency telemetry, trace logs for governance</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="il-ind-label">Industries We Serve</div>
+        <div class="il-industries">
+          <span class="il-ind-pill">&#127974; Banking & Finance</span>
+          <span class="il-ind-pill">&#128737; Insurance</span>
+          <span class="il-ind-pill">&#128138; Pharma & Life Sciences</span>
+          <span class="il-ind-pill">&#127973; Healthcare</span>
+          <span class="il-ind-pill">&#128225; Telecom</span>
+          <span class="il-ind-pill">&#128101; HR & Recruitment</span>
+          <span class="il-ind-pill">&#128663; Automotive</span>
+          <span class="il-ind-pill">&#127981; Industrial</span>
+          <span class="il-ind-pill">&#9881; Large-Scale Automation</span>
+        </div>
+      </div>
+
+      <!-- INSIDE RIGHT -->
+      <div class="panel inside-right">
+        <div class="ir-topbar">
+          <div class="il-logo-row">
+            <img src="images/litecompute_logo_enhanced.png" class="il-logo" alt="LiteCompute AI">
+            <span class="il-brand-text">LiteCompute <span class="ai">AI</span></span>
+          </div>
+          <div class="il-badge">Proven Results</div>
+        </div>
+        <div class="ir-label">Sample Use Cases</div>
+        <div class="ir-title">Real Impact.<br>Measurable ROI.</div>
+
+        <div class="ir-cases">
+          <div class="ir-case">
+            <div class="ir-case-icon">&#128269;</div>
+            <div class="ir-case-name">Audit & Diligence Copilots</div>
+            <div class="ir-case-stat">-70%</div>
+            <div class="ir-case-desc">Research time. 5-min executive briefings.</div>
+          </div>
+          <div class="ir-case">
+            <div class="ir-case-icon">&#128737;</div>
+            <div class="ir-case-name">Insurance Ecosystems</div>
+            <div class="ir-case-stat">99.2%</div>
+            <div class="ir-case-desc">Fraud accuracy. -65% processing time.</div>
+          </div>
+          <div class="ir-case">
+            <div class="ir-case-icon">&#127908;</div>
+            <div class="ir-case-name">Voice AI Systems</div>
+            <div class="ir-case-stat">-45%</div>
+            <div class="ir-case-desc">Sales cycle. -75% call handling.</div>
+          </div>
+          <div class="ir-case">
+            <div class="ir-case-icon">&#128248;</div>
+            <div class="ir-case-name">Multimodal Intelligence</div>
+            <div class="ir-case-stat">98.7%</div>
+            <div class="ir-case-desc">Vision accuracy. +68% conversion.</div>
+          </div>
+          <div class="ir-case">
+            <div class="ir-case-icon">&#9889;</div>
+            <div class="ir-case-name">Computer Use Agents</div>
+            <div class="ir-case-stat">-60%</div>
+            <div class="ir-case-desc">Manual workflow effort across legacy.</div>
+          </div>
+          <div class="ir-case">
+            <div class="ir-case-icon">&#128172;</div>
+            <div class="ir-case-name">Enterprise Chatbots</div>
+            <div class="ir-case-stat">96.5%</div>
+            <div class="ir-case-desc">Response accuracy. -70% resolution.</div>
+          </div>
+          <div class="ir-case">
+            <div class="ir-case-icon">&#128300;</div>
+            <div class="ir-case-name">Intelligent Workflows</div>
+            <div class="ir-case-stat">-82%</div>
+            <div class="ir-case-desc">False positives. -75% processing.</div>
+          </div>
+          <div class="ir-case">
+            <div class="ir-case-icon">&#128200;</div>
+            <div class="ir-case-name">Daily Agents</div>
+            <div class="ir-case-stat">-65%</div>
+            <div class="ir-case-desc">Analyst research time. Domain-specific.</div>
+          </div>
+          <div class="ir-case">
+            <div class="ir-case-icon">&#128196;</div>
+            <div class="ir-case-name">Document Intelligence</div>
+            <div class="ir-case-stat">10x</div>
+            <div class="ir-case-desc">Faster processing. 98.5% accuracy.</div>
+          </div>
+        </div>
+
+        <div class="ir-deliver-label">How We Deliver</div>
+        <div class="ir-steps-wrap">
+          <div class="ir-steps">
+            <div class="ir-step">
+              <div class="ir-step-num">01</div>
+              <div class="ir-step-title">Discovery</div>
+              <div class="ir-step-desc">Identify high-impact workflows with ROI</div>
+              <div class="ir-step-arrow">&#9654;</div>
+            </div>
+            <div class="ir-step">
+              <div class="ir-step-num">02</div>
+              <div class="ir-step-title">Architecture</div>
+              <div class="ir-step-desc">Scalable AI design for your stack</div>
+              <div class="ir-step-arrow">&#9654;</div>
+            </div>
+            <div class="ir-step">
+              <div class="ir-step-num">03</div>
+              <div class="ir-step-title">Deploy</div>
+              <div class="ir-step-desc">Cloud, hybrid or edge environments</div>
+              <div class="ir-step-arrow">&#9654;</div>
+            </div>
+            <div class="ir-step">
+              <div class="ir-step-num">04</div>
+              <div class="ir-step-title">MLOps</div>
+              <div class="ir-step-desc">Observable, reliable &amp; optimized</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ir-why-label">Why LiteCompute AI</div>
+        <div class="ir-why-grid">
+          <div class="ir-why-item"><span class="ir-why-check">&#10004;</span><span class="ir-why-text">Deep BFSI, Insurance, Govt expertise</span></div>
+          <div class="ir-why-item"><span class="ir-why-check">&#10004;</span><span class="ir-why-text">10TB+ enterprise data processing</span></div>
+          <div class="ir-why-item"><span class="ir-why-check">&#10004;</span><span class="ir-why-text">Multi-agent & multimodal specialists</span></div>
+          <div class="ir-why-item"><span class="ir-why-check">&#10004;</span><span class="ir-why-text">Secure production deployments</span></div>
+          <div class="ir-why-item"><span class="ir-why-check">&#10004;</span><span class="ir-why-text">Research-backed engineering</span></div>
+          <div class="ir-why-item"><span class="ir-why-check">&#10004;</span><span class="ir-why-text">Full lifecycle ownership</span></div>
+        </div>
+
+        <div class="ir-tech-light">
+          <div class="ir-tech-label">Our Tech & Capabilities</div>
+          <div class="ir-tech-pills">
+            <span class="ir-tech-pill">LangGraph</span>
+            <span class="ir-tech-pill">AutoGen</span>
+            <span class="ir-tech-pill">RAG Pipelines</span>
+            <span class="ir-tech-pill">Fine-Tuning</span>
+            <span class="ir-tech-pill">Knowledge Graphs</span>
+            <span class="ir-tech-pill">TTS / STT</span>
+            <span class="ir-tech-pill">Vision Models</span>
+            <span class="ir-tech-pill">Video Gen</span>
+            <span class="ir-tech-pill">Edge AI</span>
+            <span class="ir-tech-pill">LLMOps</span>
+            <span class="ir-tech-pill">Drift Detection</span>
+            <span class="ir-tech-pill">Prompt Versioning</span>
+            <span class="ir-tech-pill">Telemetry</span>
+            <span class="ir-tech-pill">Governance</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="download-btns">
+      <button class="dl-btn" onclick="downloadJPG('spread-inner', 'litecompute-a5-inside')">JPG</button>
+      <button class="dl-btn" onclick="downloadPDF('spread-inner', 'litecompute-a5-inside')">PDF</button>
+      <button class="dl-btn" onclick="downloadPNG('spread-inner', 'litecompute-a5-inside')">PNG</button>
+    </div>
+  </div>
+
+  <!-- ==================== DOWNLOAD ALL ==================== -->
+  <div class="download-btns" style="margin-top:10px;">
+    <button class="dl-btn" onclick="downloadAllPDF()" style="background:rgba(6,182,212,0.15);font-weight:700;">DOWNLOAD ALL AS PDF</button>
+  </div>
+
+</div>
+
+<script>
+const A5_W_MM = 210;
+const A5_H_MM = 148;
+
+async function renderSpread(elementId, scale) {
+  const el = document.getElementById(elementId);
+  const origShadow = el.style.boxShadow;
+  el.style.boxShadow = 'none';
+  const canvas = await html2canvas(el, {
+    backgroundColor: '#ffffff',
+    scale: scale,
+    useCORS: true
+  });
+  el.style.boxShadow = origShadow;
+  return canvas;
+}
+
+async function downloadJPG(elementId, filename) {
+  const canvas = await renderSpread(elementId, 3);
+  const link = document.createElement('a');
+  link.download = filename + '.jpg';
+  link.href = canvas.toDataURL('image/jpeg', 0.95);
+  link.click();
+}
+
+async function downloadPDF(elementId, filename) {
+  const canvas = await renderSpread(elementId, 3);
+  const imgData = canvas.toDataURL('image/jpeg', 0.95);
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF({
+    orientation: 'landscape',
+    unit: 'mm',
+    format: [A5_W_MM, A5_H_MM]
+  });
+  pdf.addImage(imgData, 'JPEG', 0, 0, A5_W_MM, A5_H_MM);
+  pdf.save(filename + '.pdf');
+}
+
+async function downloadPNG(elementId, filename) {
+  const canvas = await renderSpread(elementId, 4);
+  const link = document.createElement('a');
+  link.download = filename + '.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+async function downloadAllPDF() {
+  const spreads = ['spread-outer', 'spread-inner'];
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF({
+    orientation: 'landscape',
+    unit: 'mm',
+    format: [A5_W_MM, A5_H_MM]
+  });
+  for (let i = 0; i < spreads.length; i++) {
+    if (i > 0) pdf.addPage([A5_W_MM, A5_H_MM], 'landscape');
+    const canvas = await renderSpread(spreads[i], 3);
+    const imgData = canvas.toDataURL('image/jpeg', 0.95);
+    pdf.addImage(imgData, 'JPEG', 0, 0, A5_W_MM, A5_H_MM);
+  }
+  pdf.save('litecompute-brochure-a5-all.pdf');
+}
+</script>
+
+</body>
+</html>
