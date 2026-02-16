@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiteCompute AI - ID Card - Pasha Shaik</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #e8e8e8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            padding: 50px 20px;
+        }
+
+        .section-label {
+            text-align: center;
+            font-size: 10px;
+            font-weight: 700;
+            color: #555;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: -38px;
+        }
+
+        /* ==================== FRONT SIDE ==================== */
+        .id-front {
+            width: 600px;
+            height: 370px;
+            border-radius: 14px;
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        /* Left cyan sidebar */
+        .front-sidebar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 200px;
+            background: linear-gradient(180deg, #06B6D4, #2563EB);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 28px 20px;
+        }
+
+        .front-sidebar .photo-frame {
+            width: 140px;
+            height: 160px;
+            border-radius: 10px;
+            border: 4px solid rgba(255,255,255,0.5);
+            overflow: hidden;
+            margin-bottom: 14px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .front-sidebar .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .front-sidebar .person-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+            line-height: 1.2;
+            margin-bottom: 4px;
+        }
+
+        .front-sidebar .person-role {
+            font-size: 9px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.85);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 14px;
+        }
+
+        .front-sidebar .sidebar-divider {
+            width: 30px;
+            height: 2px;
+            background: rgba(255,255,255,0.4);
+            border-radius: 2px;
+            margin-bottom: 14px;
+        }
+
+        .front-sidebar .sidebar-dept {
+            font-size: 10px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.9);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 3px;
+        }
+
+        .front-sidebar .sidebar-dept-val {
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .front-sidebar .sidebar-loc {
+            font-size: 10px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.9);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 3px;
+        }
+
+        .front-sidebar .sidebar-loc-val {
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Right content area */
+        .front-content {
+            margin-left: 200px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .front-content-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 24px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .front-content-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .front-content-brand img {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+        }
+
+        .front-content-brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .front-content-brand-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #111;
+            letter-spacing: 1.5px;
+        }
+
+        .front-content-brand-name .ai {
+            color: #06B6D4;
+        }
+
+        .front-content-tagline {
+            font-size: 10px;
+            font-weight: 700;
+            color: #000;
+            opacity: 0.5;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .front-id-badge {
+            font-size: 8px;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(135deg, #06B6D4, #2563EB);
+            border: none;
+            padding: 4px 10px;
+            border-radius: 4px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0 2px 8px rgba(6,182,212,0.3);
+            display: inline-block;
+            margin-bottom: 8px;
+            width: fit-content;
+        }
+
+        /* Features in front card */
+        .front-features {
+            flex: 1;
+            padding: 16px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .front-features-title {
+            font-size: 13px;
+            font-weight: 800;
+            color: #06B6D4;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .front-feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 7px;
+        }
+
+        .front-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 10px;
+            background: #fafafa;
+            border-radius: 8px;
+            border: 1px solid #f0f0f0;
+        }
+
+        .front-feature-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #06B6D4, #2563EB);
+            flex-shrink: 0;
+        }
+
+        .front-feature-text {
+            font-size: 11px;
+            font-weight: 500;
+            color: #333;
+            line-height: 1.3;
+        }
+
+        /* Front footer */
+        .front-footer {
+            padding: 10px 24px;
+            border-top: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .front-footer-text {
+            font-size: 7px;
+            font-weight: 600;
+            color: #000;
+            opacity: 0.3;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .front-footer-strip {
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #06B6D4, #2563EB);
+            border-radius: 2px;
+        }
+
+        /* ==================== BACK SIDE ==================== */
+        .id-back {
+            width: 600px;
+            height: 370px;
+            border-radius: 14px;
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        /* Back cyan top bar */
+        .back-topbar {
+            height: 50px;
+            background: linear-gradient(90deg, #06B6D4, #2563EB);
+            display: flex;
+            align-items: center;
+            padding: 0 28px;
+            gap: 12px;
+        }
+
+        .back-topbar img {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+        }
+
+        .back-topbar-brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1.5px;
+        }
+
+        .back-topbar-brand .ai {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .back-topbar-tagline {
+            font-size: 10px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.9);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-left: auto;
+        }
+
+        /* Back body */
+        .back-body {
+            display: flex;
+            padding: 18px 28px 14px;
+            gap: 24px;
+            height: calc(100% - 50px - 34px);
+        }
+
+        /* Back left - contact */
+        .back-left {
+            width: 55%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .back-section-title {
+            font-size: 10px;
+            font-weight: 800;
+            color: #06B6D4;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .back-contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .back-contact-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .back-contact-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: #F0FDFF;
+            border: 1px solid #CFFAFE;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .back-contact-icon svg {
+            width: 16px;
+            height: 16px;
+            fill: #06B6D4;
+        }
+
+        .back-contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .back-contact-label {
+            font-size: 8px;
+            font-weight: 700;
+            color: #000;
+            opacity: 0.4;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .back-contact-value {
+            font-size: 12px;
+            font-weight: 500;
+            color: #000;
+        }
+
+        /* Back right - QR */
+        .back-right {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-left: 2px solid #f5f5f5;
+            padding-left: 24px;
+        }
+
+        .back-qr-wrapper {
+            padding: 10px;
+            background: #F0FDFF;
+            border-radius: 12px;
+            border: 1px solid #CFFAFE;
+            margin-bottom: 14px;
+        }
+
+        .back-qr-wrapper img {
+            width: 150px;
+            height: 150px;
+            border-radius: 6px;
+            display: block;
+        }
+
+        .back-qr-text {
+            font-size: 9px;
+            font-weight: 700;
+            color: #06B6D4;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .back-address {
+            text-align: center;
+        }
+
+        .back-address-label {
+            font-size: 7px;
+            font-weight: 700;
+            color: #000;
+            opacity: 0.4;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+
+        .back-address-value {
+            font-size: 10px;
+            font-weight: 500;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        /* Back footer */
+        .back-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 34px;
+            background: #fafafa;
+            border-top: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .back-footer-text {
+            font-size: 7px;
+            font-weight: 600;
+            color: #000;
+            opacity: 0.3;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .back-footer-dot {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: #06B6D4;
+            opacity: 0.5;
+        }
+
+        /* ==================== BUTTONS ==================== */
+        .btn-group {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, #06B6D4, #2563EB);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(6,182,212,0.3);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(6,182,212,0.4);
+        }
+
+        .action-btn svg { width: 16px; height: 16px; }
+
+        @media print {
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            @page { size: A4 portrait; margin: 15mm; }
+            body { background: #fff !important; padding: 20px; }
+            .btn-group { display: none !important; }
+            .section-label { display: none !important; }
+            .id-front, .id-back { box-shadow: 0 0 0 1px #ddd !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== FRONT ========== -->
+    <p class="section-label">Front Side</p>
+    <div class="id-front">
+        <!-- Cyan sidebar with photo -->
+        <div class="front-sidebar">
+            <div class="photo-frame">
+                <img src="images/pasha_image.png" alt="Pasha Shaik">
+            </div>
+            <div class="person-name">Pasha Shaik</div>
+            <div class="person-role">Co-Founder</div>
+            <div class="sidebar-divider"></div>
+            <div class="sidebar-dept">Department</div>
+            <div class="sidebar-dept-val">ML Researcher</div>
+            <div class="sidebar-loc">Location</div>
+            <div class="sidebar-loc-val">Hyderabad, India</div>
+        </div>
+
+        <!-- Right content -->
+        <div class="front-content">
+            <div class="front-content-header">
+                <div class="front-content-brand">
+                    <img src="images/litecompute_logo_enhanced.png" alt="LiteCompute AI">
+                    <div class="front-content-brand-text">
+                        <span class="front-content-brand-name">LiteCompute <span class="ai">AI</span></span>
+                        <span class="front-content-tagline">Where AI Goes Live</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="front-features">
+                <span class="front-id-badge">Identity Card</span>
+                <div class="front-features-title">What We Build</div>
+                <div class="front-feature-grid">
+                    <div class="front-feature-item">
+                        <div class="front-feature-dot"></div>
+                        <div class="front-feature-text">Advanced RAG & Copilots</div>
+                    </div>
+                    <div class="front-feature-item">
+                        <div class="front-feature-dot"></div>
+                        <div class="front-feature-text">Multi-Agent Orchestration</div>
+                    </div>
+                    <div class="front-feature-item">
+                        <div class="front-feature-dot"></div>
+                        <div class="front-feature-text">Voice & Conversational AI</div>
+                    </div>
+                    <div class="front-feature-item">
+                        <div class="front-feature-dot"></div>
+                        <div class="front-feature-text">Computer Use Agents</div>
+                    </div>
+                    <div class="front-feature-item">
+                        <div class="front-feature-dot"></div>
+                        <div class="front-feature-text">Multimodal AI & Video Gen</div>
+                    </div>
+                    <div class="front-feature-item">
+                        <div class="front-feature-dot"></div>
+                        <div class="front-feature-text">Edge & On-Device AI</div>
+                    </div>
+                    <div class="front-feature-item">
+                        <div class="front-feature-dot"></div>
+                        <div class="front-feature-text">MLOps & LLMOps</div>
+                    </div>
+                    <div class="front-feature-item">
+                        <div class="front-feature-dot"></div>
+                        <div class="front-feature-text">Fine-Tuning & Prompt Eng</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="front-footer">
+                <span class="front-footer-text">LiteCompute AI Pvt Ltd</span>
+                <div class="front-footer-strip"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== BACK ========== -->
+    <p class="section-label">Back Side</p>
+    <div class="id-back">
+        <!-- Cyan top bar -->
+        <div class="back-topbar">
+            <img src="images/litecompute_logo_enhanced.png" alt="LiteCompute AI">
+            <span class="back-topbar-brand">LiteCompute <span class="ai">AI</span></span>
+            <span class="back-topbar-tagline">Where AI Goes Live</span>
+        </div>
+
+        <div class="back-body">
+            <!-- Left: Contact details -->
+            <div class="back-left">
+                <div class="back-section-title">Get In Touch</div>
+                <div class="back-contact-list">
+                    <div class="back-contact-row">
+                        <div class="back-contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>
+                        </div>
+                        <div class="back-contact-info">
+                            <span class="back-contact-label">Phone</span>
+                            <span class="back-contact-value">+91 8019486323</span>
+                        </div>
+                    </div>
+                    <div class="back-contact-row">
+                        <div class="back-contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                        <div class="back-contact-info">
+                            <span class="back-contact-label">Email</span>
+                            <span class="back-contact-value">pasha@litecompute.ai</span>
+                        </div>
+                    </div>
+                    <div class="back-contact-row">
+                        <div class="back-contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                        </div>
+                        <div class="back-contact-info">
+                            <span class="back-contact-label">Website</span>
+                            <span class="back-contact-value">litecompute.ai</span>
+                        </div>
+                    </div>
+                    <div class="back-contact-row">
+                        <div class="back-contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                        </div>
+                        <div class="back-contact-info">
+                            <span class="back-contact-label">LinkedIn</span>
+                            <span class="back-contact-value">linkedin.com/in/pasha-shaik</span>
+                        </div>
+                    </div>
+                    <div class="back-contact-row">
+                        <div class="back-contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                        </div>
+                        <div class="back-contact-info">
+                            <span class="back-contact-label">Address</span>
+                            <span class="back-contact-value">Kapil Towers, Hyderabad - 500019</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: QR -->
+            <div class="back-right">
+                <div class="back-qr-wrapper">
+                    <img src="images/litecomputeQR.jpeg" alt="QR Code">
+                </div>
+                <div class="back-qr-text">Scan to Connect</div>
+            </div>
+        </div>
+
+        <div class="back-footer">
+            <span class="back-footer-text">LiteCompute AI Pvt Ltd</span>
+            <span class="back-footer-dot"></span>
+            <span class="back-footer-text">Hyderabad, India</span>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn-group">
+        <button class="action-btn download-btn" onclick="downloadCards()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download JPG
+        </button>
+        <button class="action-btn" onclick="window.print()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            Print Card
+        </button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        function downloadBlob(canvas, filename) {
+            return new Promise(resolve => {
+                canvas.toBlob(blob => {
+                    const link = document.createElement('a');
+                    link.download = filename;
+                    link.href = URL.createObjectURL(blob);
+                    link.click();
+                    setTimeout(() => {
+                        URL.revokeObjectURL(link.href);
+                        resolve();
+                    }, 150);
+                }, 'image/jpeg', 0.95);
+            });
+        }
+
+        async function downloadCards() {
+            const btn = document.querySelector('.download-btn');
+            btn.textContent = 'Generating...';
+            btn.disabled = true;
+
+            try {
+                const front = document.querySelector('.id-front');
+                const frontCanvas = await html2canvas(front, { scale: 3, useCORS: true, backgroundColor: '#fff' });
+
+                const back = document.querySelector('.id-back');
+                const backCanvas = await html2canvas(back, { scale: 3, useCORS: true, backgroundColor: '#fff' });
+
+                await downloadBlob(frontCanvas, 'litecompute-id-card-pasha-front.jpg');
+                await downloadBlob(backCanvas, 'litecompute-id-card-pasha-back.jpg');
+            } catch (err) {
+                alert('Download failed: ' + err.message);
+            }
+
+            btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Download JPG`;
+            btn.disabled = false;
+        }
+    </script>
+
+</body>
+</html>

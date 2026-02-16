@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zingaro AI - Event Invitation Card</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #e8e8e8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            padding: 50px 20px;
+        }
+
+        .section-label {
+            text-align: center;
+            font-size: 10px;
+            font-weight: 700;
+            color: #555;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: -38px;
+        }
+
+        /* ==================== FRONT SIDE ==================== */
+        .card-front {
+            width: 370px;
+            height: 700px;
+            border-radius: 16px;
+            background: #FAFAFA;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        /* Orange gradient glow top-right */
+        .card-front::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255,107,43,0.15) 0%, rgba(255,107,43,0.05) 40%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .front-inner {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Invite heading */
+        .invite-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #F97316;
+            text-align: center;
+            margin-bottom: 14px;
+            letter-spacing: 1px;
+        }
+
+        /* Event subtitle */
+        .event-subtitle {
+            font-size: 15px;
+            font-weight: 800;
+            color: #F97316;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Main title */
+        .event-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: #111;
+            text-align: center;
+            line-height: 1.2;
+            margin-bottom: 6px;
+        }
+
+        .event-location {
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .event-divider {
+            width: 50px;
+            height: 3px;
+            background: #F97316;
+            border-radius: 2px;
+            margin-bottom: 20px;
+        }
+
+        /* Invite message */
+        .invite-message {
+            font-size: 15px;
+            font-weight: 500;
+            color: #555;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        /* Zingaro brand */
+        .brand-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .brand-section img {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+        }
+
+        .brand-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: #111;
+            letter-spacing: 1.5px;
+        }
+
+        .brand-name .ai {
+            color: #FF6B2B;
+        }
+
+        .brand-tagline {
+            font-size: 11px;
+            font-weight: 600;
+            color: #666;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        /* Booth badge */
+        .booth-badge {
+            background: linear-gradient(135deg, #FF6B2B, #FF8C42);
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(255,107,43,0.3);
+            margin-bottom: 20px;
+        }
+
+        .booth-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            margin-bottom: 4px;
+        }
+
+        .booth-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        /* QR Section */
+        .qr-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .qr-wrapper {
+            padding: 8px;
+            background: #FFF5F0;
+            border-radius: 10px;
+            border: 1px solid #FFE0D0;
+            margin-bottom: 6px;
+        }
+
+        .qr-wrapper img {
+            width: 100px;
+            height: 100px;
+            border-radius: 6px;
+            display: block;
+        }
+
+        .qr-text {
+            font-size: 9px;
+            font-weight: 700;
+            color: #FF6B2B;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Website */
+        .card-website {
+            font-size: 14px;
+            font-weight: 600;
+            color: #FF6B2B;
+            letter-spacing: 1px;
+        }
+
+        /* Bottom strip */
+        .front-bottom-strip {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #FF6B2B, #FF8C42);
+        }
+
+        /* ==================== BUTTONS ==================== */
+        .btn-group {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            background: #FF6B2B;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255,107,43,0.3);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255,107,43,0.4);
+        }
+
+        .action-btn svg { width: 16px; height: 16px; }
+
+        @media print {
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            @page { size: A4 portrait; margin: 15mm; }
+            body { background: #fff !important; padding: 20px; }
+            .btn-group { display: none !important; }
+            .section-label { display: none !important; }
+            .card-front, .card-back { box-shadow: 0 0 0 1px #ddd !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-front">
+        <div class="front-inner">
+            <div class="invite-text">You're Invited</div>
+            <div class="event-subtitle">India's Biggest AI Summit 2026</div>
+            <div class="event-title">Bharat Mandapam</div>
+            <div class="event-location">New Delhi, India</div>
+            <div class="event-divider"></div>
+
+            <div class="brand-section">
+                <img src="images/zingaro_logo1.png.png" alt="Zingaro AI">
+                <span class="brand-name">ZINGARO <span class="ai">AI</span></span>
+            </div>
+            <div class="brand-tagline">Conversational AI Action Engine</div>
+
+            <div class="invite-message">We'd love to meet you at</div>
+
+            <div class="booth-badge">
+                <div class="booth-label">Booth</div>
+                <div class="booth-number">#43</div>
+            </div>
+
+            <div class="qr-section">
+                <div class="qr-wrapper">
+                    <img src="images/My_QR_Code_1-1024 (1).jpeg" alt="QR Code">
+                </div>
+                <div class="qr-text">Scan to Connect</div>
+            </div>
+
+            <div class="card-website">zingaro.ai</div>
+        </div>
+        <div class="front-bottom-strip"></div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn-group">
+        <button class="action-btn download-btn" onclick="downloadCards()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download JPG
+        </button>
+        <button class="action-btn" onclick="window.print()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            Print Card
+        </button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        function downloadBlob(canvas, filename) {
+            return new Promise(resolve => {
+                canvas.toBlob(blob => {
+                    const link = document.createElement('a');
+                    link.download = filename;
+                    link.href = URL.createObjectURL(blob);
+                    link.click();
+                    setTimeout(() => {
+                        URL.revokeObjectURL(link.href);
+                        resolve();
+                    }, 150);
+                }, 'image/jpeg', 0.95);
+            });
+        }
+
+        async function downloadCards() {
+            const btn = document.querySelector('.download-btn');
+            btn.textContent = 'Generating...';
+            btn.disabled = true;
+
+            try {
+                const front = document.querySelector('.card-front');
+                const frontCanvas = await html2canvas(front, { scale: 3, useCORS: true, backgroundColor: '#FAFAFA' });
+
+                await downloadBlob(frontCanvas, 'zingaro-event-card.jpg');
+            } catch (err) {
+                alert('Download failed: ' + err.message);
+            }
+
+            btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Download JPG`;
+            btn.disabled = false;
+        }
+    </script>
+
+</body>
+</html>
